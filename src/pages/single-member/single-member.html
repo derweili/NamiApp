@@ -1,0 +1,39 @@
+<!--
+  Generated template for the SingleMemberPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ member.firstName }} {{ member.lastName }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+    <ion-card-content>
+      <p *ngIf="member.dateOfBirth">
+        Geburtstag: {{member.dateOfBirth}};
+      </p>
+      <p *ngIf="member.phone1">
+        Telefon: {{member.phone1}};
+      </p>
+      <p *ngIf="member.gender">
+        Geschlecht: {{member.gender}}
+      </p>
+      <p *ngIf="member.email">
+        Email: {{member.email}}
+      </p>
+      <p *ngIf="member.legalRepresentiveEmail">
+        Email Vertretungsberechtigter: {{member.legalRepresentiveEmail}}
+      </p>
+      <p *ngIf="member.entryDate">
+        Eintrittsdatum: {{member.entryDate}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

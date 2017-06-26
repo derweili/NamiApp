@@ -1,0 +1,43 @@
+export class NamiMember{
+
+    constructor(
+        public firstJob: string,
+        public genericField1: string,
+        public version: number,
+        public phone3: string,
+        public phone2: string,
+        public phone1: string,
+        public descriptor: string,
+        public entryId: number,
+        public nationality: string,
+        public rover: string,
+        public scout: string,
+        public memberNumber: number,
+        public reuseFlag: boolean,
+        public firstSubdivisionId: any,
+        public firstName: string,
+        public id: number,
+        public wolf: string,
+        public contributionTypes: string,
+        public grade: string,
+        public email: string,
+        public confession: string,
+        public legalRepresentiveEmail: string,
+        public fixContribution: string,
+        public lastUpdated: string,
+        public status: string,
+        public youndScout: string,
+        public memberType: string,
+        public bandInfo: string,
+        public gender: string,
+        public nickname: string,
+        public dateOfBirth: string,
+        public nationalityDescription: string,
+        public lastName: string,
+        public entryDate: string,
+        public leavingDate: string,
+        public genericField2: string,
+        public fax: string
+    ){}
+
+}

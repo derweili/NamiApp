@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Nami
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="onLoadItems($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>  
+    <button ion-item *ngFor="let group of groups" (click)="selectGroup(group)">
+      {{group.name}}
+    </button>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row  *ngIf="groups.length == 0">
+      <ion-col text-center>
+        No Groups found, slide down to load groups!
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="groups.length > 0">
+      <ion-col>
+        <button ion-button (click)="onDeleteItems()" block color="danger">
+          Remove all local data
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
