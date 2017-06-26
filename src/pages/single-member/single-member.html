@@ -13,27 +13,58 @@
 </ion-header>
 
 
-<ion-content padding>
-    <ion-card>
-    <ion-card-content>
-      <p *ngIf="member.dateOfBirth">
-        Geburtstag: {{member.dateOfBirth}};
-      </p>
-      <p *ngIf="member.phone1">
-        Telefon: {{member.phone1}};
-      </p>
-      <p *ngIf="member.gender">
-        Geschlecht: {{member.gender}}
-      </p>
-      <p *ngIf="member.email">
-        Email: {{member.email}}
-      </p>
-      <p *ngIf="member.legalRepresentiveEmail">
-        Email Vertretungsberechtigter: {{member.legalRepresentiveEmail}}
-      </p>
-      <p *ngIf="member.entryDate">
-        Eintrittsdatum: {{member.entryDate}}
-      </p>
-    </ion-card-content>
-  </ion-card>
+<ion-content>
+      <ion-list>
+        <ion-item *ngIf="member.dateOfBirth">
+          <ion-icon item-start name="calendar"></ion-icon>
+          Geburtstag
+          <ion-note item-end>{{member.dateOfBirth | date }};</ion-note>
+        </ion-item>
+
+
+        <ion-item *ngIf="member.phone1">
+          <ion-icon item-start name="call"></ion-icon>
+          Telefon
+          <ion-note item-end>{{member.phone1}}</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="member.phone2">
+          <ion-icon item-start name="call"></ion-icon>
+          Telefon 2
+          <ion-note item-end>{{member.phone2}}</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="member.phone3">
+          <ion-icon item-start name="call"></ion-icon>
+          Telefon 3
+          <ion-note item-end>{{member.phone3}}</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="member.gender">
+          <ion-icon item-start name="male" *ngIf="member.gender == 'männlich'"></ion-icon>
+          <ion-icon item-start name="female" *ngIf="member.gender == 'weiblich'"></ion-icon>
+          Geschlecht
+          <ion-note item-end>{{member.gender}}</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="member.email">
+          <ion-icon item-start name="mail"></ion-icon>
+          Email
+          <ion-note item-end><a href="mailto:{{member.email}}">{{member.email}}</a></ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="member.legalRepresentiveEmail">
+          <ion-icon item-start name="mail"></ion-icon>
+          Email Vertretungsberechtigter:
+          <ion-note item-end><a href="mailto:{{member.legalRepresentiveEmail}}">{{member.legalRepresentiveEmail}}</a></ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="member.entryDate">
+          <ion-icon item-start name="calendar"></ion-icon>
+          Eintrittsdatum
+          <ion-note item-end>{{member.entryDate | date }}</ion-note>
+        </ion-item>
+
+      </ion-list>
+
 </ion-content>

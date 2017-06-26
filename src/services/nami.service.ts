@@ -53,7 +53,7 @@ export class NamiService {
                         let members : NamiMember[] = [];
 
                         for(let member of group.members){
-                            if( member.stautus != 'status' ){
+                            if( member.status == 'Aktiv' ){
                                 members.push(
                                     new NamiMember(
                                         member.first_job,
