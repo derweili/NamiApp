@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { SingleMemberPage } from './../pages/single-member/single-member';
 import { SingleGroupPage } from './../pages/single-group/single-group';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -10,8 +11,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { NamiService } from '../services/nami.service';
+import { LoginService } from '../services/login.service';
 import { HomePage } from '../pages/home/home';
 import { IonicStorageModule } from '@ionic/storage';
+import { NamiHeaderComponent } from '../components/nami-header/nami-header';
 
 
 const cloudSettings: CloudSettings = {
@@ -25,7 +28,9 @@ const cloudSettings: CloudSettings = {
     MyApp,
     HomePage,
     SingleGroupPage,
-    SingleMemberPage
+    SingleMemberPage,
+    NamiHeaderComponent,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -39,13 +44,15 @@ const cloudSettings: CloudSettings = {
     MyApp,
     HomePage,
     SingleGroupPage,
-    SingleMemberPage
+    SingleMemberPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NamiService,
+    LoginService
   ]
 })
 export class AppModule {}

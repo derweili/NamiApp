@@ -42,7 +42,7 @@ export class NamiService {
         headers.append('Access-Control-Allow-Origin', '*');
 
 
-        return this.http.get('http://julian-weiland.de/nami-app-connector/')
+        return this.http.get('http://julian-weiland.de/nami-app-connector/', {headers: headers})
             .map(res => res.json() )
             .map((res) =>{
                 let groups : NamiGroup[] = [];

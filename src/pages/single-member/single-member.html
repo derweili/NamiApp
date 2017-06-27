@@ -67,4 +67,23 @@
 
       </ion-list>
 
+      <ion-grid> 
+        <ion-row>
+          <ion-col *ngIf="member.email">
+            <a href="mailto:{{member.email}}">
+              <button ion-button outline block icon-left>
+                <ion-icon name="mail"></ion-icon>
+                Mail senden</button>
+            </a>
+          </ion-col>
+          <ion-col *ngIf="member.phone1">
+            <a href="tel:{{member.phone1}}">
+              <button ion-button outline block icon-left>
+                <ion-icon name="call"></ion-icon>
+                Anrufen</button>
+            </a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
 </ion-content>
