@@ -1,3 +1,4 @@
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { LoginPage } from './../pages/login/login';
 import { SingleMemberPage } from './../pages/single-member/single-member';
 import { SingleGroupPage } from './../pages/single-group/single-group';
@@ -52,7 +53,8 @@ const cloudSettings: CloudSettings = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NamiService,
-    LoginService
+    LoginService,
+    FingerprintAIO
   ]
 })
 export class AppModule {}
