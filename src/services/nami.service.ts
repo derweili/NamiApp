@@ -1,5 +1,8 @@
-import { NamiMember } from './../models/member.model';
+//import { LoginService } from './login.service';
+import { LoginCredentials } from '../models/login-credentials.model';
 import { NamiGroup } from './../models/group.model';
+import { NamiMember } from './../models/member.model';
+import { LoginService } from './login.service';
 import { Observable } from 'rxjs/Observable';
 
 import { Injectable } from '@angular/core';
@@ -11,12 +14,16 @@ import { Storage } from '@ionic/storage';
 export class NamiService {
 
     groups: NamiGroup[] = [];
-
+    loginCredentials: any;
 
     constructor(
         private http: Http,
-        private storage: Storage
-    ) {}
+        private storage: Storage,
+        private loginService: LoginService
+    ) {
+    }
+
+
 
     getData(){
         return this.storage.get('NamiGroups')
@@ -36,10 +43,18 @@ export class NamiService {
 
     fetchData(){
 
+
+
         var headers = new Headers();
+
+        let credentials = this.loginService.oldLoginCredentials;
+        
+        console.log('fetch data');
+        console.log(credentials);
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         //headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Access-Control-Allow-Origin', '*');
+        headers.append("Authorization", "Basic " + btoa(credentials.username + ":" + credentials.password)); 
 
 
         return this.http.get('http://julian-weiland.de/nami-app-connector/', {headers: headers})

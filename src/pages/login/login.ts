@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { LoginService } from '../../services/login.service';
 
 import { Component } from '@angular/core';
@@ -22,14 +23,14 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private loginService: LoginService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
 
   onLogin(){
     console.log(this.username);
     console.log(this.password);
-    this.loginService.initLogin(this.username, this.password);
+    let loginStatus = this.loginService.initLogin(this.username, this.password);
+    if(loginStatus.success == true){
+      this.navCtrl.push(HomePage);
+    }
   }
 
 }
