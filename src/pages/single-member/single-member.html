@@ -65,6 +65,12 @@
           <ion-note item-end>{{member.entryDate | date }}</ion-note>
         </ion-item>
 
+        <ion-item *ngIf="member.memberNumber">
+          <ion-icon item-start name="information-circle"></ion-icon>
+          Mitgliedsnummer
+          <ion-note item-end>{{member.memberNumber}}</ion-note>
+        </ion-item>
+
       </ion-list>
 
       <ion-grid> 
