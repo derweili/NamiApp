@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Nami
     </ion-title>
@@ -10,11 +10,36 @@
   <ion-refresher (ionRefresh)="onLoadItems($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list>
-    <button ion-item *ngFor="let group of groups" (click)="selectGroup(group)">
-      {{group.name}}
-    </button>
-  </ion-list>
+
+  <ion-card *ngFor="let group of groups" >
+    <ion-card-content>
+      <ion-card-title>
+        {{group.name}}
+      </ion-card-title>
+      <p>
+        {{group.parentGroupName}}
+      </p>
+      <p>
+        Anzahl Mitglieder: {{group.members.length}}
+      </p>
+      <p>
+        Gruppierungsnummer: {{group.groupNumber}}
+      </p>
+      
+      <p>
+        <a href="{{group.website}}">{{group.website}}</a>
+      </p>
+      <ion-row>
+        <ion-col>
+          <button ion-button block (click)="selectGroup(group)">
+            Zur Mitgliederliste
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
 
   <ion-grid>
     <ion-row  *ngIf="groups.length == 0">

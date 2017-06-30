@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>{{group.name}}</ion-title>
   </ion-navbar>
 
@@ -14,20 +14,33 @@
 
 
 <ion-content >
-  <ion-card>
+  <single-group-dashboard [group]="group"></single-group-dashboard>
+  <!--<ion-card>
     <ion-card-content>
       <ion-card-title>
         {{group.name}}
       </ion-card-title>
       <p>
+        {{group.parentGroupName}}
+      </p>
+      <p>
         Anzahl Mitglieder: {{group.members.length}}
+      </p>
+      <p>
+        Gruppierungsnummer: {{group.groupNumber}}
+      </p>
+      
+      <p>
+        <a href="{{group.website}}">{{group.website}}</a>
       </p>
     </ion-card-content>
   </ion-card>
 
+  <ion-searchbar (ionInput)="searchMembers($event)"></ion-searchbar>
+
   <ion-list>
-    <button ion-item *ngFor="let member of group.members" (click)="selectMember(member)">
+    <button ion-item *ngFor="let member of members" (click)="selectMember(member)">
       {{member.firstName}} {{member.lastName}}
     </button>
-  </ion-list>
+  </ion-list>-->
 </ion-content>

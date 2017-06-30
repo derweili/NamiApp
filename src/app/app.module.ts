@@ -1,3 +1,4 @@
+import { Toast } from '@ionic-native/toast';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { LoginPage } from './../pages/login/login';
 import { SingleMemberPage } from './../pages/single-member/single-member';
@@ -16,6 +17,8 @@ import { LoginService } from '../services/login.service';
 import { HomePage } from '../pages/home/home';
 import { IonicStorageModule } from '@ionic/storage';
 import { NamiHeaderComponent } from '../components/nami-header/nami-header';
+import { LoadingController } from 'ionic-angular';
+import { SingleGroupDashboardComponent } from '../components/single-group-dashboard/single-group-dashboard';
 
 
 const cloudSettings: CloudSettings = {
@@ -31,7 +34,8 @@ const cloudSettings: CloudSettings = {
     SingleGroupPage,
     SingleMemberPage,
     NamiHeaderComponent,
-    LoginPage
+    LoginPage,
+    SingleGroupDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,9 @@ const cloudSettings: CloudSettings = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NamiService,
     LoginService,
-    FingerprintAIO
+    FingerprintAIO,
+    LoadingController,
+    Toast
   ]
 })
 export class AppModule {}

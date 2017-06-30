@@ -1,3 +1,4 @@
+import { NamiMember } from './../../models/member.model';
 import { SingleMemberPage } from './../single-member/single-member';
 import { NamiGroup } from '../../models/group.model';
 
@@ -18,14 +19,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class SingleGroupPage {
 
   group : NamiGroup;
+  members : NamiMember[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.group = this.navParams.get('group');
-  }
-
-
-  selectMember(member){
-    this.navCtrl.push(SingleMemberPage, {member: member})
+    //this.resetMembers();
   }
 
 

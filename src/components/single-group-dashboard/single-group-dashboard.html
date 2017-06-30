@@ -1,0 +1,10 @@
+<!-- Generated template for the SingleGroupDashboardComponent component -->
+
+
+<ion-searchbar (ionInput)="searchMembers($event)"></ion-searchbar>
+
+<ion-list>
+  <button ion-item *ngFor="let member of members" (click)="selectMember(member)">
+    {{member.firstName}} {{member.lastName}}
+  </button>
+</ion-list>

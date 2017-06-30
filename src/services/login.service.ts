@@ -24,7 +24,7 @@ export class LoginService {
 
 
     loginToServer(){
-
+        console.log('loginToServer()');
         var headers = new Headers();;
         //headers.append("Authorization", "Basic " + btoa(this.user + ":" + this.password));
         //headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -34,7 +34,11 @@ export class LoginService {
         headers.append("Authorization", "Basic " + btoa(this.username + ":" + this.password)); 
         return this.http.get('http://julian-weiland.de/nami-app-connector/authentication.php', {
             headers: headers
-        }).map(res => res.json() )
+        }).map((res) =>{
+            console.log('loginToServerResult');
+            console.log(res);
+            return res.json();
+        })
         .toPromise();
 
     }
@@ -51,20 +55,25 @@ export class LoginService {
         this.username = username;
         this.password = password;
         
-        if( this.oldLoginCredentials != null && this.oldLoginCredentials.username == username && this.oldLoginCredentials.password == password ){
+        return new Promise((resolve, reject) => {
 
-            return {
-                success: true
-            };
+            if( this.oldLoginCredentials != null && this.oldLoginCredentials.username == username && this.oldLoginCredentials.password == password ){
 
-        }else{
-            this.loginToServer()
-            .then((response) => {
-                console.log('loginToServer');
-                console.log(response);
-                return this.handleLoginResponse(response);
-            });
-        }
+                resolve( {
+                    success: true
+                } );
+
+            }else{
+                this.loginToServer()
+                .then((response) => {
+                    console.log('loginToServer');
+                    console.log(response);
+                    resolve(
+                     this.handleLoginResponse(response)
+                    );
+                });
+            }
+        })
 
     }
 
@@ -90,6 +99,11 @@ export class LoginService {
       this.oldLoginCredentials = newCredentials;
       
 
+    }
+
+    loadCredentials(){
+        console.log('getCurrentCredentials');
+        return this.storage.get('login_credentials');
     }
 
 }
