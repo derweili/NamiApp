@@ -18,6 +18,7 @@ export class SingleGroupDashboardComponent {
 
   @Input('group') group : NamiGroup;
   members : NamiMember[] = [];
+  searchTerm : string = '';
 
 
   constructor(
@@ -40,14 +41,14 @@ export class SingleGroupDashboardComponent {
   }
 
 
-  searchMembers(ev: any) {
+  searchMembers() {
     // Reset items back to all of the items
     this.resetMembers();
 
     // set val to the value of the searchbar
-    let val = ev.target.value;
+    let val = this.searchTerm;
 
-    // if the value is an empty string don't filter the items
+    // if t he value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.members = this.members.filter((item) => {
         return (
