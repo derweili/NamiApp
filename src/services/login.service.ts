@@ -32,7 +32,7 @@ export class LoginService {
         headers.append('Access-Control-Allow-Origin', '*');
 
         headers.append("Authorization", "Basic " + btoa(this.username + ":" + this.password)); 
-        return this.http.get('http://julian-weiland.de/nami-app-connector/authentication.php', {
+        return this.http.get('http://nami.derweili.de/nami-app-connector/authentication.php', {
             headers: headers
         }).map((res) =>{
             console.log('loginToServerResult');

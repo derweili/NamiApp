@@ -57,7 +57,7 @@ export class NamiService {
         headers.append("Authorization", "Basic " + btoa(credentials.username + ":" + credentials.password)); 
 
 
-        return this.http.get('http://julian-weiland.de/nami-app-connector/', {headers: headers})
+        return this.http.get('http://nami.derweili.de/nami-app-connector/', {headers: headers})
             .map(res => res.json() )
             .map((res) =>{
                 let groups : NamiGroup[] = [];
