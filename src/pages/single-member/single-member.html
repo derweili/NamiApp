@@ -15,6 +15,12 @@
 
 <ion-content>
       <ion-list>
+         <ion-item *ngIf="member.dateOfBirth">
+          <ion-icon item-start name="calendar"></ion-icon>
+          Stufe
+          <ion-note item-end>{{member.grade}}</ion-note>
+        </ion-item>
+
         <ion-item *ngIf="member.dateOfBirth">
           <ion-icon item-start name="calendar"></ion-icon>
           Geburtstag
