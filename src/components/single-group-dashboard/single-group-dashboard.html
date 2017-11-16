@@ -4,7 +4,7 @@
   <ion-searchbar (ionInput)="searchMembers($event)" [(ngModel)]="searchTerm"  [ngModelOptions]="{standalone: true}">></ion-searchbar>
 </form>
 <ion-list>
-  <button ion-item *ngFor="let member of members" (click)="selectMember()">
+  <button ion-item *ngFor="let member of members" (click)="selectMember(member)">
     {{member.firstName}} {{member.lastName}}
   </button>
 </ion-list>
